@@ -54,9 +54,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="ZjR-km-9hv" kind="show" id="p0P-iu-279">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <action selector="searchButton:" destination="o1T-63-YPr" eventType="touchUpInside" id="w53-6v-X3a"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E5A-Er-2jS">
@@ -72,6 +70,7 @@
                     <navigationItem key="navigationItem" id="gUL-J8-7kk"/>
                     <connections>
                         <outlet property="searchInput" destination="E5A-Er-2jS" id="spn-6Y-BQw"/>
+                        <segue destination="ZjR-km-9hv" kind="show" identifier="showTable" id="Ihy-Su-XBl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tt8-iO-cev" sceneMemberID="firstResponder"/>
@@ -91,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLE-0c-jFX" id="ruj-qS-kXd">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-zL-HGc">

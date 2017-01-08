@@ -13,6 +13,7 @@
 		E16473201E2146C700FF1A24 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164731C1E2146C700FF1A24 /* ViewControllerTableViewCell.swift */; };
 		E16473271E21475200FF1A24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16473261E21475200FF1A24 /* ViewController.swift */; };
 		E16473291E21494D00FF1A24 /* CustomButtonOrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16473281E21494D00FF1A24 /* CustomButtonOrView.swift */; };
+		E164732B1E21598D00FF1A24 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164732A1E21598D00FF1A24 /* API.swift */; };
 		E18AF00D1E214242003FDEE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18AF00C1E214242003FDEE4 /* AppDelegate.swift */; };
 		E18AF0121E214242003FDEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18AF0101E214242003FDEE4 /* Main.storyboard */; };
 		E18AF0141E214242003FDEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E18AF0131E214242003FDEE4 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		E164731C1E2146C700FF1A24 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		E16473261E21475200FF1A24 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E16473281E21494D00FF1A24 /* CustomButtonOrView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonOrView.swift; sourceTree = "<group>"; };
+		E164732A1E21598D00FF1A24 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E18AF0091E214242003FDEE4 /* replayr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = replayr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18AF00C1E214242003FDEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E18AF0111E214242003FDEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E16473281E21494D00FF1A24 /* CustomButtonOrView.swift */,
+				E164732A1E21598D00FF1A24 /* API.swift */,
 				E16473211E2146CB00FF1A24 /* View controllers */,
 				E18AF00C1E214242003FDEE4 /* AppDelegate.swift */,
 				E18AF0101E214242003FDEE4 /* Main.storyboard */,
@@ -238,6 +241,7 @@
 				E18AF00D1E214242003FDEE4 /* AppDelegate.swift in Sources */,
 				E164731D1E2146C700FF1A24 /* MovieViewController.swift in Sources */,
 				E164731E1E2146C700FF1A24 /* TableViewController.swift in Sources */,
+				E164732B1E21598D00FF1A24 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

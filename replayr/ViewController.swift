@@ -11,20 +11,31 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var searchInput: UITextField!
+    var movies: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        ///getMovieInformation(movieId: "Sherlock")
+        
+    }
+    
+    @IBAction func searchButton(_ sender: Any) {
+        let phrase = searchInput.text!.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil);
+        
+        search(phrase: phrase) { movies in
+            self.movies = movies
+            self.performSegue(withIdentifier: "showTable", sender: self)
+        }
     }
     
     //seque to other viewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var searchString: String = searchInput.text!
-        searchString = searchString.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-        
         let tableViewController: TableViewController = segue.destination as! TableViewController
         
-        tableViewController.recevecSearchString = searchString
+        
+        tableViewController.movies = movies
     }
 }
 
