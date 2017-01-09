@@ -29,7 +29,6 @@ class MovieViewController: UIViewController {
     @IBAction func playMovie(_ sender: Any) {
         playFilm()
     }
-    
     func playFilm() {
         //EZAlertController.alert("Error", message: "Can not get video source from server")
         
