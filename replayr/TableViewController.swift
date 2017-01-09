@@ -18,39 +18,37 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    // return number of films
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies!.count
     }
-
+    
+    //Populate cells with data from Movie class
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ViewControllerTableViewCell
         
-        let movie = movies?[indexPath.row];
+        let movie = movies?[indexPath.row]
         
         cell.filmTitle.text = movie?.getTitle()
-
+        
         let imageURL = NSURL(string: (movie?.getImage())!)
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         cell.filmImage.image = UIImage(data: imagedData as Data)
         
         return cell
     }
-
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         row = indexPath.row
         
         performSegue(withIdentifier: "presentMovie", sender: self)
     }
- 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "presentMovie") {
             let movieViewController: MovieViewController = segue.destination as! MovieViewController
@@ -58,17 +56,3 @@ class TableViewController: UITableViewController {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

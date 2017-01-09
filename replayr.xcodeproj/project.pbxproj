@@ -12,7 +12,6 @@
 		E164731E1E2146C700FF1A24 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164731A1E2146C700FF1A24 /* TableViewController.swift */; };
 		E16473201E2146C700FF1A24 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164731C1E2146C700FF1A24 /* ViewControllerTableViewCell.swift */; };
 		E16473271E21475200FF1A24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16473261E21475200FF1A24 /* ViewController.swift */; };
-		E16473291E21494D00FF1A24 /* CustomButtonOrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16473281E21494D00FF1A24 /* CustomButtonOrView.swift */; };
 		E164732B1E21598D00FF1A24 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164732A1E21598D00FF1A24 /* API.swift */; };
 		E18AF00D1E214242003FDEE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18AF00C1E214242003FDEE4 /* AppDelegate.swift */; };
 		E18AF0121E214242003FDEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18AF0101E214242003FDEE4 /* Main.storyboard */; };
@@ -25,13 +24,12 @@
 		354034161D56A59860FC7EDD /* Pods_replayr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_replayr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0809E4603B4CDA33BD977B /* Pods-replayr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-replayr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-replayr/Pods-replayr.debug.xcconfig"; sourceTree = "<group>"; };
 		E16473191E2146C700FF1A24 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
-		E164731A1E2146C700FF1A24 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		E164731A1E2146C700FF1A24 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E164731C1E2146C700FF1A24 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		E16473261E21475200FF1A24 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E16473281E21494D00FF1A24 /* CustomButtonOrView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonOrView.swift; sourceTree = "<group>"; };
-		E164732A1E21598D00FF1A24 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E164732A1E21598D00FF1A24 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = API.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18AF0091E214242003FDEE4 /* replayr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = replayr.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E18AF00C1E214242003FDEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E18AF00C1E214242003FDEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18AF0111E214242003FDEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E18AF0131E214242003FDEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E18AF0161E214242003FDEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		E18AF00B1E214242003FDEE4 /* replayr */ = {
 			isa = PBXGroup;
 			children = (
-				E16473281E21494D00FF1A24 /* CustomButtonOrView.swift */,
 				E164732A1E21598D00FF1A24 /* API.swift */,
 				E16473211E2146CB00FF1A24 /* View controllers */,
 				E18AF00C1E214242003FDEE4 /* AppDelegate.swift */,
@@ -235,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16473291E21494D00FF1A24 /* CustomButtonOrView.swift in Sources */,
 				E16473271E21475200FF1A24 /* ViewController.swift in Sources */,
 				E16473201E2146C700FF1A24 /* ViewControllerTableViewCell.swift in Sources */,
 				E18AF00D1E214242003FDEE4 /* AppDelegate.swift in Sources */,
@@ -290,6 +286,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -339,6 +337,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

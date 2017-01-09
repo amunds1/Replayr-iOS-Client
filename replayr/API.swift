@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let baseUrl = "http://localhost:8080/";
+let baseUrl = "http://replayr.fshauge.me/" 
 
 func search(phrase: String, callback: @escaping ([Movie]) -> ()) {
     let url = baseUrl + "search/" + phrase

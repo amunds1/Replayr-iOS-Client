@@ -5,5 +5,6 @@ use_frameworks!
 target ‘replayr’ do
     pod 'Alamofire', '~> 4.0'
     pod ‘SwiftyJSON’
-    
+    pod 'EZAlertController'
+    pod ‘SwifterSwift’
 end

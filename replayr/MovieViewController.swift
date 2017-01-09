@@ -9,35 +9,32 @@
 import UIKit
 import AVKit
 import AVFoundation
+import EZAlertController
 
 class MovieViewController: UIViewController {
-
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     
     var movie: Movie?
     
-    //var selectedMovie: Movie?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTitle.text = movie?.getTitle()
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let imageURL = NSURL(string: (movie?.getImage())!)
+        let imagedData = NSData(contentsOf: imageURL! as URL)!
+        movieImage.image = UIImage(data: imagedData as Data)
     }
     
     @IBAction func playMovie(_ sender: Any) {
         playFilm()
-        
     }
     
     func playFilm() {
+        //EZAlertController.alert("Error", message: "Can not get video source from server")
+        
         getEpisodes(movie: movie!) { episodes in
-            getSource(episode: episodes[2]) { source in
+            getSource(episode: episodes[2]) {source in
                 let videoURL = NSURL(string: source)
                 let player = AVPlayer(url: videoURL! as URL)
                 let playerViewController = AVPlayerViewController()
