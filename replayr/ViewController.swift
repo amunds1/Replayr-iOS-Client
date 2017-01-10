@@ -13,8 +13,7 @@ import SwiftSpinner
 class ViewController: UIViewController {
     @IBOutlet weak var searchInput: UITextField!
     @IBOutlet weak var searchMoviesButton: UIButton!
-    
-    
+
     var movies: [Movie]?
     
     override func viewDidLoad() {
@@ -33,7 +32,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
-        
         searchMoviesButton.isEnabled = false
         
         SwiftSpinner.show("Searching for movies")
@@ -44,8 +42,6 @@ class ViewController: UIViewController {
             self.movies = movies
             self.performSegue(withIdentifier: "showTable", sender: self)
         }
-        
-        
     }
     
     //seque to other viewcontroller

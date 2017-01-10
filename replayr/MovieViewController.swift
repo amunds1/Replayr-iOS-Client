@@ -50,7 +50,7 @@ class MovieViewController: UIViewController {
             getSource(movie: self.movie!, episode: episodes[0]) {source in
                 let videoURL = NSURL(string: source)
                 let player = AVPlayer(url: videoURL! as URL)
-                let playerViewController = LandscapeAVPlayerController()
+                let playerViewController = AVPlayerViewController()
                 playerViewController.player = player
                 self.present(playerViewController, animated: true) {
                     playerViewController.player!.play()
