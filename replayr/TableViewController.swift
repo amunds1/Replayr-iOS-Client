@@ -10,14 +10,18 @@ import UIKit
 import Foundation
 import SwiftyJSON
 import SwiftSpinner
+import SwifterSwift
 
 class TableViewController: UITableViewController {
     var recevecSearchString: String = ""
     var movies: [Movie]?
     var row: Int = 0
+    var imageCache = [String : UIImage]()
+    var servers: [Server]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,11 +39,15 @@ class TableViewController: UITableViewController {
         
         let movie = movies?[indexPath.row]
         
-        cell.filmTitle.text = movie?.getTitle()
+        cell.filmTitle.text = movie?.title
         
-        let imageURL = NSURL(string: (movie?.getImage())!)
-        let imagedData = NSData(contentsOf: imageURL! as URL)!
-        cell.filmImage.image = UIImage(data: imagedData as Data)
+        if !imageCache.has(key: (movie?.image)!) {
+            let imageURL = NSURL(string: (movie?.image)!)
+            let imageData = NSData(contentsOf: imageURL! as URL)!
+            imageCache[(movie?.image)!] = UIImage(data: imageData as Data)
+        }
+        
+        cell.filmImage.image = imageCache[(movie?.image)!]
         
         SwiftSpinner.hide()
         
@@ -49,13 +57,26 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         row = indexPath.row
         
-        performSegue(withIdentifier: "presentMovie", sender: self)
+        getEpisodes(movie: (movies?[row])!) { servers in
+            self.servers = servers
+            if servers[0].episodes.count == 1 {
+                self.performSegue(withIdentifier: "presentMovie", sender: self)
+            } else {
+                self.performSegue(withIdentifier: "presentSeries", sender: self)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         if (segue.identifier == "presentMovie") {
             let movieViewController: MovieViewController = segue.destination as! MovieViewController
             movieViewController.movie = movies?[row]
+            movieViewController.servers = servers!
+        } else if (segue.identifier == "presentSeries") {
+            let seriesViewController: SeriesViewController = segue.destination as! SeriesViewController
+            seriesViewController.movie = movies?[row]
+            seriesViewController.servers = servers!
         }
     }
 }

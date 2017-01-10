@@ -21,12 +21,13 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var playMovieButton: UIButton!
     
     var movie: Movie?
+    var servers: [Server]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieTitle.text = movie?.getTitle()
+        movieTitle.text = movie?.title
         
-        let imageURL = NSURL(string: (movie?.getImage())!)
+        let imageURL = NSURL(string: (movie?.image)!)
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         movieImage.image = UIImage(data: imagedData as Data)
         
@@ -46,15 +47,13 @@ class MovieViewController: UIViewController {
     func playFilm() {
         playMovieButton.isEnabled = false
         
-        getEpisodes(movie: movie!) { episodes in
-            getSource(movie: self.movie!, episode: episodes[0]) {source in
-                let videoURL = NSURL(string: source)
-                let player = AVPlayer(url: videoURL! as URL)
-                let playerViewController = AVPlayerViewController()
-                playerViewController.player = player
-                self.present(playerViewController, animated: true) {
-                    playerViewController.player!.play()
-                }
+        getSource(movie: self.movie!, episode: (servers?[0].episodes[0])!) {source in
+            let videoURL = NSURL(string: source)
+            let player = AVPlayer(url: videoURL! as URL)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
             }
         }
     }

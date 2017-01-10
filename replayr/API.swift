@@ -27,23 +27,26 @@ func search(phrase: String, callback: @escaping ([Movie]) -> ()) {
     }
 }
 
-func getEpisodes(movie: Movie, callback: @escaping ([Episode]) -> ()) {
-    let url = baseUrl + "episodes/" + String(movie.getId())
+func getEpisodes(movie: Movie, callback: @escaping ([Server]) -> ()) {
+    let url = baseUrl + "episodes/" + String(movie.id)
     
     Alamofire.request(url).responseJSON { response in
         let json = JSON(response.result.value!)
-        var episodes = [Episode]()
+        var servers = [Server]()
         
-        for episode in json["episodes"].arrayValue {
-            episodes.append(Episode(id: episode["id"].int!, server: episode["server"].int!, title: episode["title"].string!))
+        for server in json["servers"].arrayValue {
+            var episodes = [Episode]()
+            for episode in server["episodes"].arrayValue {
+                episodes.append(Episode(id: episode["id"].int!, title: episode["title"].string!))
+            }
+            servers.append(Server(id: server["id"].int!, episodes: episodes))
         }
-        
-        callback(episodes)
+        callback(servers)
     }
 }
 
 func getSource(movie: Movie, episode: Episode, callback: @escaping (String) -> ()) {
-    let url = baseUrl + "source/" + String(movie.getId()) + "/" + String(episode.getId())
+    let url = baseUrl + "source/" + String(movie.id) + "/" + String(episode.id)
     
     Alamofire.request(url).responseJSON { response in
         let json = JSON(response.result.value!)
@@ -62,40 +65,24 @@ class Movie {
         self.title = title
         self.image = image
     }
+}
+
+class Server {
+    let id: Int
+    let episodes: [Episode]
     
-    func getId() -> Int {
-        return id
-    }
-    
-    func getTitle() -> String {
-        return title
-    }
-    
-    func getImage() -> String {
-        return image
+    init(id: Int, episodes: [Episode]) {
+        self.id = id
+        self.episodes = episodes
     }
 }
 
 class Episode {
     let id: Int
-    let server: Int
     let title: String
     
-    init(id: Int, server: Int, title: String) {
+    init(id: Int, title: String) {
         self.id = id
-        self.server = server
         self.title = title
-    }
-    
-    func getId() -> Int {
-        return id
-    }
-    
-    func getServer() -> Int {
-        return server
-    }
-    
-    func getTitle() -> String {
-        return title
     }
 }
