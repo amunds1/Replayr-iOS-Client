@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import EZAlertController
+import SwifterSwift
 
 class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
@@ -31,9 +32,11 @@ class MovieViewController: UIViewController {
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         movieImage.image = UIImage(data: imagedData as Data)
         
-        movieIMDbRating.text = "9.3"
-        movieReleaseYear.text = "2013"
-        movieDescription.text = "Description of the movie"
+        /*
+        movieIMDbRating.text = String(describing: movie?.IMDb)
+        movieReleaseYear.text = String(describing: movie?.release)
+        movieDescription.text = movie?.description
+        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
