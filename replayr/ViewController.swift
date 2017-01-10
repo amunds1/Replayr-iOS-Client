@@ -8,9 +8,13 @@
 
 import UIKit
 import SwifterSwift
+import SwiftSpinner
 
 class ViewController: UIViewController {
     @IBOutlet weak var searchInput: UITextField!
+    @IBOutlet weak var searchMoviesButton: UIButton!
+    
+    
     var movies: [Movie]?
     
     override func viewDidLoad() {
@@ -18,9 +22,10 @@ class ViewController: UIViewController {
         
         let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        searchMoviesButton.isEnabled = true
     }
     
     func dismissKeyboard() {
@@ -28,12 +33,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
+        
+        searchMoviesButton.isEnabled = false
+        
+        SwiftSpinner.show("Searching for movies")
+        
         let phrase = searchInput.text!.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
         
         search(phrase: phrase) { movies in
             self.movies = movies
             self.performSegue(withIdentifier: "showTable", sender: self)
         }
+        
+        
     }
     
     //seque to other viewcontroller

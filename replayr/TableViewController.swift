@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import SwiftyJSON
+import SwiftSpinner
 
 class TableViewController: UITableViewController {
     var recevecSearchString: String = ""
@@ -39,6 +40,8 @@ class TableViewController: UITableViewController {
         let imageURL = NSURL(string: (movie?.getImage())!)
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         cell.filmImage.image = UIImage(data: imagedData as Data)
+        
+        SwiftSpinner.hide()
         
         return cell
     }

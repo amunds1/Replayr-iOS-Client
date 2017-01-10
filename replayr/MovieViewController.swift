@@ -18,6 +18,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var movieIMDbRating: UILabel!
     @IBOutlet weak var movieReleaseYear: UILabel!
     @IBOutlet weak var movieDescription: UITextView!
+    @IBOutlet weak var playMovieButton: UIButton!
     
     var movie: Movie?
     
@@ -34,12 +35,16 @@ class MovieViewController: UIViewController {
         movieDescription.text = "A movie about a young vegan who secretly eats meat"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        playMovieButton.isEnabled = true
+    }
+    
     @IBAction func playMovie(_ sender: Any) {
         playFilm()
     }
     
     func playFilm() {
-        //EZAlertController.alert("Error", message: "Can not get video source from server")
+        playMovieButton.isEnabled = false
         
         getEpisodes(movie: movie!) { episodes in
             getSource(movie: self.movie!, episode: episodes[0]) {source in

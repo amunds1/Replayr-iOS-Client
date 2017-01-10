@@ -77,6 +77,7 @@
                     <navigationItem key="navigationItem" id="gUL-J8-7kk"/>
                     <connections>
                         <outlet property="searchInput" destination="E5A-Er-2jS" id="spn-6Y-BQw"/>
+                        <outlet property="searchMoviesButton" destination="dPL-dg-B9w" id="eYX-wD-SZA"/>
                         <segue destination="ZjR-km-9hv" kind="show" identifier="showTable" id="Ihy-Su-XBl"/>
                     </connections>
                 </viewController>
@@ -97,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLE-0c-jFX" id="ruj-qS-kXd">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-zL-HGc">
@@ -227,6 +228,7 @@
                         <outlet property="movieImage" destination="Bvw-Yf-yb2" id="xQt-aj-huE"/>
                         <outlet property="movieReleaseYear" destination="pmt-DD-h9g" id="Ey2-eu-nOL"/>
                         <outlet property="movieTitle" destination="q2V-Zw-AoT" id="cg4-F5-czB"/>
+                        <outlet property="playMovieButton" destination="xfD-Ma-K0u" id="kWK-Qu-PEH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqH-ZN-hgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
