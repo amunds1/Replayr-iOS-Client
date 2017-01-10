@@ -35,15 +35,15 @@ func getEpisodes(movie: Movie, callback: @escaping ([Episode]) -> ()) {
         var episodes = [Episode]()
         
         for episode in json["episodes"].arrayValue {
-            episodes.append(Episode(id: episode["id"].int!, server: episode["server"].int!))
+            episodes.append(Episode(id: episode["id"].int!, server: episode["server"].int!, title: episode["title"].string!))
         }
         
         callback(episodes)
     }
 }
 
-func getSource(episode: Episode, callback: @escaping (String) -> ()) {
-    let url = baseUrl + "source/" + String(episode.getId()) + "/" + String(episode.getServer())
+func getSource(movie: Movie, episode: Episode, callback: @escaping (String) -> ()) {
+    let url = baseUrl + "source/" + String(movie.getId()) + "/" + String(episode.getId())
     
     Alamofire.request(url).responseJSON { response in
         let json = JSON(response.result.value!)
@@ -79,10 +79,12 @@ class Movie {
 class Episode {
     let id: Int
     let server: Int
+    let title: String
     
-    init(id: Int, server: Int) {
+    init(id: Int, server: Int, title: String) {
         self.id = id
         self.server = server
+        self.title = title
     }
     
     func getId() -> Int {
@@ -91,5 +93,9 @@ class Episode {
     
     func getServer() -> Int {
         return server
+    }
+    
+    func getTitle() -> String {
+        return title
     }
 }

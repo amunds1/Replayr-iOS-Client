@@ -2,20 +2,23 @@ PODS:
   - Alamofire (4.2.0)
   - EZAlertController (3.2)
   - SwifterSwift (1.4.3)
+  - SwiftSpinner (1.1.0)
   - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - EZAlertController
   - SwifterSwift
+  - SwiftSpinner
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   EZAlertController: 633be01320bed47720be54054df47667d61c2481
   SwifterSwift: 12bec12cda5820722de0698dd8f55bc031a1260a
+  SwiftSpinner: c03815614599b91eea46594bd52ba742849d0414
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 480ddd5870666707a153c87f4d2b432336e2e08d
+PODFILE CHECKSUM: 456e49dd9c60ab77b8475243d491cbefb387f1dd
 
 COCOAPODS: 1.1.1

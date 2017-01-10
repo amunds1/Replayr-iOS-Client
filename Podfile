@@ -7,4 +7,5 @@ target ‘replayr’ do
     pod ‘SwiftyJSON’
     pod 'EZAlertController'
     pod ‘SwifterSwift’
+    pod 'SwiftSpinner'
 end

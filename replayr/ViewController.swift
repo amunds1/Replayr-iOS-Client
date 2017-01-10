@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         
         let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        
     
     }
     

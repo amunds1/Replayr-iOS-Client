@@ -15,6 +15,10 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     
+    @IBOutlet weak var movieIMDbRating: UILabel!
+    @IBOutlet weak var movieReleaseYear: UILabel!
+    @IBOutlet weak var movieDescription: UITextView!
+    
     var movie: Movie?
     
     override func viewDidLoad() {
@@ -24,16 +28,21 @@ class MovieViewController: UIViewController {
         let imageURL = NSURL(string: (movie?.getImage())!)
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         movieImage.image = UIImage(data: imagedData as Data)
+        
+        movieIMDbRating.text = "9.3"
+        movieReleaseYear.text = "2013"
+        movieDescription.text = "A movie about a young vegan who secretly eats meat"
     }
     
     @IBAction func playMovie(_ sender: Any) {
         playFilm()
     }
+    
     func playFilm() {
         //EZAlertController.alert("Error", message: "Can not get video source from server")
         
         getEpisodes(movie: movie!) { episodes in
-            getSource(episode: episodes[2]) {source in
+            getSource(movie: self.movie!, episode: episodes[0]) {source in
                 let videoURL = NSURL(string: source)
                 let player = AVPlayer(url: videoURL! as URL)
                 let playerViewController = AVPlayerViewController()
