@@ -32,7 +32,7 @@ class MovieViewController: UIViewController {
         
         movieIMDbRating.text = "9.3"
         movieReleaseYear.text = "2013"
-        movieDescription.text = "A movie about a young vegan who secretly eats meat"
+        movieDescription.text = "Description of the movie"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +50,7 @@ class MovieViewController: UIViewController {
             getSource(movie: self.movie!, episode: episodes[0]) {source in
                 let videoURL = NSURL(string: source)
                 let player = AVPlayer(url: videoURL! as URL)
-                let playerViewController = AVPlayerViewController()
+                let playerViewController = LandscapeAVPlayerController()
                 playerViewController.player = player
                 self.present(playerViewController, animated: true) {
                     playerViewController.player!.play()

@@ -176,7 +176,7 @@
                                 <rect key="frame" x="155" y="192" width="65" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Movie description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HQI-6e-FoY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Movie description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HQI-6e-FoY">
                                 <rect key="frame" x="16" y="304" width="288" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

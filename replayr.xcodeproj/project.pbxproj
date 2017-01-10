@@ -17,6 +17,7 @@
 		E18AF0121E214242003FDEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18AF0101E214242003FDEE4 /* Main.storyboard */; };
 		E18AF0141E214242003FDEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E18AF0131E214242003FDEE4 /* Assets.xcassets */; };
 		E18AF0171E214242003FDEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E18AF0151E214242003FDEE4 /* LaunchScreen.storyboard */; };
+		E1B42B231E254F110036EF25 /* LandscapeAVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B42B221E254F110036EF25 /* LandscapeAVPlayerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E18AF0131E214242003FDEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E18AF0161E214242003FDEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E18AF0181E214242003FDEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1B42B221E254F110036EF25 /* LandscapeAVPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeAVPlayerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E164732A1E21598D00FF1A24 /* API.swift */,
+				E1B42B221E254F110036EF25 /* LandscapeAVPlayerController.swift */,
 				E16473211E2146CB00FF1A24 /* View controllers */,
 				E18AF00C1E214242003FDEE4 /* AppDelegate.swift */,
 				E18AF0101E214242003FDEE4 /* Main.storyboard */,
@@ -235,6 +238,7 @@
 				E16473271E21475200FF1A24 /* ViewController.swift in Sources */,
 				E16473201E2146C700FF1A24 /* ViewControllerTableViewCell.swift in Sources */,
 				E18AF00D1E214242003FDEE4 /* AppDelegate.swift in Sources */,
+				E1B42B231E254F110036EF25 /* LandscapeAVPlayerController.swift in Sources */,
 				E164731D1E2146C700FF1A24 /* MovieViewController.swift in Sources */,
 				E164731E1E2146C700FF1A24 /* TableViewController.swift in Sources */,
 				E164732B1E21598D00FF1A24 /* API.swift in Sources */,
