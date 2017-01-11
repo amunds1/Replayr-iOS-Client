@@ -36,7 +36,7 @@ class MovieViewController: UIViewController {
         movieIMDbRating.text = String(describing: movie?.IMDb)
         movieReleaseYear.text = String(describing: movie?.release)
         movieDescription.text = movie?.description
- 
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,8 +50,8 @@ class MovieViewController: UIViewController {
     func playFilm() {
         playMovieButton.isEnabled = false
         
-        getSource(movie: self.movie!, episode: (servers?[0].episodes[0])!) {source in
-            let videoURL = NSURL(string: source)
+        getPlaylist(movie: self.movie!, episode: (servers?[0].episodes[0])!) { playlist in
+            let videoURL = NSURL(string: playlist.sources[0].file)
             let player = AVPlayer(url: videoURL! as URL)
             let playerViewController = AVPlayerViewController()
             playerViewController.player = player
