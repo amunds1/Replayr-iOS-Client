@@ -11,15 +11,17 @@ import AVKit
 import AVFoundation
 import EZAlertController
 import SwifterSwift
+import Cosmos
 
 class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     
-    @IBOutlet weak var movieIMDbRating: UILabel!
+
     @IBOutlet weak var movieReleaseYear: UILabel!
     @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var playMovieButton: UIButton!
+    @IBOutlet weak var starRating: CosmosView!
     
     var movie: Movie?
     var servers: [Server]?
@@ -33,9 +35,14 @@ class MovieViewController: UIViewController {
         movieImage.image = UIImage(data: imagedData as Data)
         
         
-        movieIMDbRating.text = String(describing: movie?.IMDb)
-        movieReleaseYear.text = String(describing: movie?.release)
+        
         movieDescription.text = movie?.description
+        
+        starRating.settings.updateOnTouch = false
+        starRating.settings.fillMode = .precise
+        starRating.rating = Double((movie?.IMDb)!)/2.0
+        
+        movieReleaseYear.text = "Release: " + String(describing: (movie?.release)!)
 
     }
     
