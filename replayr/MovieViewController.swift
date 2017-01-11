@@ -32,11 +32,11 @@ class MovieViewController: UIViewController {
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         movieImage.image = UIImage(data: imagedData as Data)
         
-        /*
+        
         movieIMDbRating.text = String(describing: movie?.IMDb)
         movieReleaseYear.text = String(describing: movie?.release)
         movieDescription.text = movie?.description
-        */
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {

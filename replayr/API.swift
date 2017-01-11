@@ -20,8 +20,8 @@ func search(phrase: String, callback: @escaping ([Movie]) -> ()) {
         var movies = [Movie]()
 
         for movie in json["movies"].arrayValue {
-            movies.append(Movie(id: movie["id"].int! , title: movie["title"].string!, image: movie["image"].string!))
-            //movies.append(Movie(id: movie["id"].int!, title: movie["title"].string!, image: movie["image"].string!, description: movie["description"].string!, release: movie["release"].int!, IMDb: movie["imdb"].float!))
+            //movies.append(Movie(id: movie["id"].int! , title: movie["title"].string!, image: movie["image"].string!))
+            movies.append(Movie(id: movie["id"].int!, title: movie["title"].string!, image: movie["image"].string!, description: movie["description"].string!, release: movie["release"].int!, IMDb: movie["imdb"].float!))
         }
         
         callback(movies)
@@ -60,22 +60,18 @@ class Movie {
     let id: Int
     let title: String
     let image: String
-    /*
     let description: String
     let release: Int
     let IMDb: Float
-    */
     
-    //init(id: Int, title: String, image: String, description: String, release: Int, IMDb: Float)
-    init(id: Int, title: String, image: String) {
+    //init(id: Int, title: String, image: String)
+    init(id: Int, title: String, image: String, description: String, release: Int, IMDb: Float) {
         self.id = id
         self.title = title
         self.image = image
-        /*
         self.description = description
         self.release = release
         self.IMDb = IMDb
-        */
     }
 }
 

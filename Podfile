@@ -8,4 +8,5 @@ target ‘replayr’ do
     pod 'EZAlertController'
     pod ‘SwifterSwift’
     pod 'SwiftSpinner'
+    pod ‘Cosmos’, '~> 7.0’
 end

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
-        view.endEditing(true)
+        dismissKeyboard()
         searchMoviesButton.isEnabled = false
         
         SwiftSpinner.show("Searching for movies")
@@ -49,5 +49,9 @@ class ViewController: UIViewController {
         let tableViewController: TableViewController = segue.destination as! TableViewController
         
         tableViewController.movies = movies
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Search"
+        navigationItem.backBarButtonItem = backItem
     }
 }

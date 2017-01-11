@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import Cosmos
 
 class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var movie: Movie?
@@ -16,9 +17,10 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieReleaseYear: UILabel!
-    @IBOutlet weak var movieIMDbRating: UILabel!
     @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var moveImage: UIImageView!
+    @IBOutlet weak var starRating: CosmosView!
+    
     
     
     override func viewDidLoad() {
@@ -28,6 +30,10 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let imageURL = NSURL(string: (movie?.image)!)
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         moveImage.image = UIImage(data: imagedData as Data)
+        
+        starRating.settings.updateOnTouch = false
+        starRating.settings.fillMode = .half
+        starRating.rating = 4.5
         
     }
 
