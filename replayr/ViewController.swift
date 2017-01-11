@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
+        view.endEditing(true)
         searchMoviesButton.isEnabled = false
         
         SwiftSpinner.show("Searching for movies")
