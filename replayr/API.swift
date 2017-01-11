@@ -46,13 +46,53 @@ func getEpisodes(movie: Movie, callback: @escaping ([Server]) -> ()) {
     }
 }
 
-func getSource(movie: Movie, episode: Episode, callback: @escaping (String) -> ()) {
-    let url = baseUrl + "source/" + String(movie.id) + "/" + String(episode.id)
+func getPlaylist(movie: Movie, episode: Episode, callback: @escaping (Playlist) -> ()) {
+    let url = baseUrl + "playlist/" + String(movie.id) + "/" + String(episode.id)
     
     Alamofire.request(url).responseJSON { response in
         let json = JSON(response.result.value!)
+        var sources = [Source]()
+        var subtitles = [Subtitle]()
         
-        callback(json["source"].string!)
+        for source in json["playlist"]["sources"].arrayValue {
+            sources.append(Source(file: source["file"].string!, quality: source["quality"].string!))
+        }
+        
+        for subtitle in json["playlist"]["subtitles"].arrayValue {
+            subtitles.append(Subtitle(file: subtitle["file"].string!, language: subtitle["language"].string!))
+        }
+        
+        callback(Playlist(sources: sources, subtitles: subtitles))
+    }
+}
+
+class Playlist {
+    let sources: [Source]
+    let subtitles: [Subtitle]
+    
+    init(sources: [Source], subtitles: [Subtitle]) {
+        self.sources = sources
+        self.subtitles = subtitles
+    }
+}
+
+class Source {
+    let file: String
+    let quality: String
+    
+    init(file: String, quality: String) {
+        self.file = file
+        self.quality = quality
+    }
+}
+
+class Subtitle {
+    let file: String
+    let language: String
+    
+    init(file: String, language: String) {
+        self.file = file
+        self.language = language
     }
 }
 
