@@ -11,6 +11,7 @@ import Foundation
 import SwiftyJSON
 import SwiftSpinner
 import SwifterSwift
+import Cosmos
 
 class TableViewController: UITableViewController {
     var recevecSearchString: String = ""
@@ -28,6 +29,11 @@ class TableViewController: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor(red: 12, green: 12, blue: 12)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies!.count
     }
@@ -39,8 +45,22 @@ class TableViewController: UITableViewController {
         
         let movie = movies?[indexPath.row]
         
+        //Populate labels with data from Movie class
         cell.filmTitle.text = movie?.title
+        cell.filmDescription.text = movie?.description
+        cell.filmReleaseYear.text = "Release: " + String((movie?.release)!)
         
+        //Set textcolor to white for all labels
+        cell.filmTitle.textColor = UIColor.white
+        cell.filmDescription.textColor = UIColor(red: 209, green: 209, blue: 209)
+        cell.filmReleaseYear.textColor = UIColor.white
+        
+        //Assign stars
+        cell.starRating.settings.updateOnTouch = false
+        cell.starRating.settings.fillMode = .precise
+        cell.starRating.rating = Double((movie?.IMDb)!)/2.0
+        
+        //Create an imagecache
         if !imageCache.has(key: (movie?.image)!) {
             let imageURL = NSURL(string: (movie?.image)!)
             let imageData = NSData(contentsOf: imageURL! as URL)!
@@ -48,6 +68,8 @@ class TableViewController: UITableViewController {
         }
         
         cell.filmImage.image = imageCache[(movie?.image)!]
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         SwiftSpinner.hide()
         
@@ -69,6 +91,11 @@ class TableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        let backItem = UIBarButtonItem()
+        backItem.title = "Results"
+        navigationItem.backBarButtonItem = backItem
+        //navigationItem.backBarButtonItem?.tintColor = UIColor(red: 133, green: 255, blue: 12)
+        
         if (segue.identifier == "presentMovie") {
             let movieViewController: MovieViewController = segue.destination as! MovieViewController
             movieViewController.movie = movies?[row]

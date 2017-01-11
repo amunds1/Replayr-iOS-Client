@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Cosmos
 
 class ViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var filmImage: UIImageView!
     @IBOutlet weak var filmTitle: UILabel!
+    @IBOutlet weak var starRating: CosmosView!
+    @IBOutlet weak var filmReleaseYear: UILabel!
+    @IBOutlet weak var filmDescription: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

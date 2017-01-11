@@ -16,10 +16,15 @@ class ViewController: UIViewController {
 
     var movies: [Movie]?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {
