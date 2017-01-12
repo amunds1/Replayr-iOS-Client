@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
+  - BugShaker (0.2.1)
   - Cosmos (7.0.0)
   - EZAlertController (3.2)
   - SwifterSwift (1.4.3)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - BugShaker
   - Cosmos (~> 7.0)
   - EZAlertController
   - SwifterSwift
@@ -16,12 +18,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  BugShaker: f675c3048bf3f35a64558ec9502ced757774c184
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   EZAlertController: 633be01320bed47720be54054df47667d61c2481
   SwifterSwift: 12bec12cda5820722de0698dd8f55bc031a1260a
   SwiftSpinner: c03815614599b91eea46594bd52ba742849d0414
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: d041314c5a538d5269d7c495e3f94ea15c604624
+PODFILE CHECKSUM: 024f064c8778945c50fb6add009c9a3d365bf675
 
 COCOAPODS: 1.1.1
