@@ -23,6 +23,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,6 +54,8 @@ class TableViewController: UITableViewController {
         //Set textcolor to white for all labels
         cell.filmTitle.textColor = UIColor.white
         cell.filmDescription.textColor = UIColor(red: 209, green: 209, blue: 209)
+        //When the user presses the textView, didSelectRowAtIndexPath will be called
+        cell.filmDescription.isUserInteractionEnabled = false
         cell.filmReleaseYear.textColor = UIColor.white
         
         //Assign stars
