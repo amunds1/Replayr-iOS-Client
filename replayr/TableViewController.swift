@@ -77,6 +77,8 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SwiftSpinner.show("Loading movie")
+        
         row = indexPath.row
         
         getEpisodes(movie: (movies?[row])!) { servers in

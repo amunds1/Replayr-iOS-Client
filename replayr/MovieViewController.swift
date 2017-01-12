@@ -12,6 +12,7 @@ import AVFoundation
 import EZAlertController
 import SwifterSwift
 import Cosmos
+import SwiftSpinner
 
 class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
@@ -43,6 +44,8 @@ class MovieViewController: UIViewController {
         starRating.rating = Double((movie?.IMDb)!)/2.0
         
         movieReleaseYear.text = "Release: " + String(describing: (movie?.release)!)
+        
+        SwiftSpinner.hide()
 
     }
     
