@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 0, green: 0, blue: 0)
         UINavigationBar.appearance().tintColor = UIColor(red: 172, green: 255, blue: 12)
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 172, green: 255, blue: 12)]
+        
+        
  
         return true
     }
