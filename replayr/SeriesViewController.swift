@@ -11,6 +11,7 @@ import AVKit
 import AVFoundation
 import Cosmos
 import SwifterSwift
+import SwiftSpinner
 
 class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var movie: Movie?
@@ -39,6 +40,8 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         starRating.rating = Double((movie?.IMDb)!)/2.0
         
         movieReleaseYear.text = "Release: " + String(describing: (movie?.release)!)
+        
+        SwiftSpinner.hide()
         
     }
 
