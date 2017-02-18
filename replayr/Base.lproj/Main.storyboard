@@ -452,7 +452,7 @@
         <image name="search-1" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ur7-dz-aHJ"/>
         <segue reference="fwP-7R-zG9"/>
+        <segue reference="ur7-dz-aHJ"/>
     </inferredMetricsTieBreakers>
 </document>

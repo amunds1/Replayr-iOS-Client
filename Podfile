@@ -9,4 +9,5 @@ target ‘replayr’ do
     pod ‘SwifterSwift’
     pod 'SwiftSpinner'
     pod ‘Cosmos’, '~> 7.0’
+    pod 'AVPlayerViewController-Subtitles'
 end

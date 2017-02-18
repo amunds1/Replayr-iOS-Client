@@ -13,6 +13,7 @@ import EZAlertController
 import SwifterSwift
 import Cosmos
 import SwiftSpinner
+import AVPlayerViewControllerSubtitles
 
 class MovieViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
@@ -34,8 +35,6 @@ class MovieViewController: UIViewController {
         let imageURL = NSURL(string: (movie?.image)!)
         let imagedData = NSData(contentsOf: imageURL! as URL)!
         movieImage.image = UIImage(data: imagedData as Data)
-        
-        
         
         movieDescription.text = movie?.description
         
@@ -62,12 +61,29 @@ class MovieViewController: UIViewController {
         
         getPlaylist(movie: self.movie!, episode: (servers?[0].episodes[0])!) { playlist in
             let videoURL = NSURL(string: playlist.sources[0].file)
-            let player = AVPlayer(url: videoURL! as URL)
-            let playerViewController = AVPlayerViewController()
-            playerViewController.player = player
-            self.present(playerViewController, animated: true) {
-                playerViewController.player!.play()
+            
+            // Movie player
+            let moviePlayer = AVPlayerViewController()
+            moviePlayer.player = AVPlayer(url: videoURL as! URL)
+            self.present(moviePlayer, animated: true, completion: nil)
+            
+            
+            if (playlist.subtitles.count > 0) && (playlist.subtitles[0].language == "English") {
+                let subtitleURL = NSURL(string: "http://123movies.is" + playlist.subtitles[0].file)
+                
+                // Add subtitles
+                moviePlayer.addSubtitles().open(file: subtitleURL as! URL)
+                moviePlayer.addSubtitles().open(file: subtitleURL as! URL, encoding: String.Encoding.utf8)
+                
+                // Change text properties
+                moviePlayer.subtitleLabel?.textColor = UIColor.red
+                
             }
+            
+            
+            
+            // Play
+            moviePlayer.player?.play()
         }
     }
 }
