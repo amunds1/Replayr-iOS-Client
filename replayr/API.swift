@@ -1,16 +1,8 @@
-//
-//  API.swift
-//  replayr
-//
-//  Created by Andreas Amundsen on 07/01/2017.
-//  Copyright © 2017 amundsencode. All rights reserved.
-//
-
 import Foundation
 import Alamofire
 import SwiftyJSON
 
-let baseUrl = "http://replayr.fshauge.me/" 
+let baseUrl = "http://replayr-api.herokuapp.com/" 
 
 func search(phrase: String, callback: @escaping ([Movie]) -> ()) {
     let url = baseUrl + "search/" + phrase
@@ -21,12 +13,33 @@ func search(phrase: String, callback: @escaping ([Movie]) -> ()) {
 
         for movie in json["movies"].arrayValue {
             //movies.append(Movie(id: movie["id"].int! , title: movie["title"].string!, image: movie["image"].string!))
-            movies.append(Movie(id: movie["id"].int!, title: movie["title"].string!, image: movie["image"].string!, description: movie["description"].string!, release: movie["release"].int!, IMDb: movie["imdb"].float!))
+            movies.append(Movie(id: movie["id"].int!, title: movie["title"].string!, image: movie["image"].string!, description: movie["description"].string!, episodes: movie["episodes"].int!, release: movie["release"].int!, IMDb: movie["imdb"].float!))
         }
         
         callback(movies)
     }
 }
+
+func getPopularItems(callback: @escaping ([Movie], [Movie]) -> ()) {
+    let url = baseUrl + "popular"
+    Alamofire.request(url).responseJSON { response in
+        let json = JSON(response.result.value!)
+        var mostPopularMovies: [Movie] = []
+        var mostPopularSeries: [Movie] = []
+        
+        for movie in json["movies"].arrayValue {
+            if movie["episodes"] > 0 {
+                mostPopularSeries.append(Movie(id: movie["id"].int!, title: movie["title"].string!, image: movie["image"].string!, description: movie["description"].string!, episodes: movie["episodes"].int!, release: movie["release"].int!, IMDb: movie["imdb"].float!))
+            } else {
+                mostPopularMovies.append(Movie(id: movie["id"].int!, title: movie["title"].string!, image: movie["image"].string!, description: movie["description"].string!, episodes: movie["episodes"].int!, release: movie["release"].int!, IMDb: movie["imdb"].float!))
+            }
+        }
+        
+        callback(mostPopularMovies, mostPopularSeries)
+    }
+}
+
+
 
 func getEpisodes(movie: Movie, callback: @escaping ([Server]) -> ()) {
     let url = baseUrl + "episodes/" + String(movie.id)
@@ -101,15 +114,17 @@ class Movie {
     let title: String
     let image: String
     let description: String
+    let episodes: Int
     let release: Int
     let IMDb: Float
     
     //init(id: Int, title: String, image: String)
-    init(id: Int, title: String, image: String, description: String, release: Int, IMDb: Float) {
+    init(id: Int, title: String, image: String, description: String, episodes: Int, release: Int, IMDb: Float) {
         self.id = id
         self.title = title
         self.image = image
         self.description = description
+        self.episodes = episodes
         self.release = release
         self.IMDb = IMDb
     }

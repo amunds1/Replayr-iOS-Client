@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zpv-pi-oq0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zpv-pi-oq0">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_alternate" translatesAutoresizingMaskIntoConstraints="NO" id="xEn-SV-hld">
-                                <rect key="frame" x="28" y="72" width="265" height="123"/>
+                                <rect key="frame" x="28" y="64" width="265" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="E5A-Er-2jS">
-                                <rect key="frame" x="16" y="256" width="245" height="30"/>
+                                <rect key="frame" x="16" y="154" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,7 +41,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPL-dg-B9w">
-                                <rect key="frame" x="266" y="252" width="38" height="38"/>
+                                <rect key="frame" x="266" y="150" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search-1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,15 +59,91 @@
                                     <action selector="searchButton:" destination="o1T-63-YPr" eventType="touchUpInside" id="amf-9x-6lR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-lY-i5R">
+                                <rect key="frame" x="25" y="196" width="270" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j30-dz-WMj">
+                                <rect key="frame" x="66" y="225" width="187" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Movies"/>
+                                    <segment title="Series"/>
+                                </segments>
+                                <color key="tintColor" red="0.67761248350000003" green="1" blue="0.040568642320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlsChanged:" destination="o1T-63-YPr" eventType="valueChanged" id="ypj-Ru-jOe"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m6-Vc-skP">
+                                <rect key="frame" x="13" y="271" width="93" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15636768937110901" green="0.16786375641822815" blue="0.20936322212219238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="viewPopularItem:" destination="o1T-63-YPr" eventType="touchUpInside" id="r4Y-gT-qRm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsY-LR-QF4">
+                                <rect key="frame" x="113" y="272" width="93" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15636768940000001" green="0.16786375640000001" blue="0.2093632221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="viewPopularItem:" destination="o1T-63-YPr" eventType="touchUpInside" id="ZiT-wk-S9W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGN-DD-mAK">
+                                <rect key="frame" x="214" y="273" width="93" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15636768940000001" green="0.16786375640000001" blue="0.2093632221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="viewPopularItem:" destination="o1T-63-YPr" eventType="touchUpInside" id="RPL-Hl-k9H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg0-n7-cGm">
+                                <rect key="frame" x="13" y="419" width="93" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15636768940000001" green="0.16786375640000001" blue="0.2093632221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="viewPopularItem:" destination="o1T-63-YPr" eventType="touchUpInside" id="OfB-vg-HGM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrh-bs-mcZ">
+                                <rect key="frame" x="113" y="419" width="93" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15636768940000001" green="0.16786375640000001" blue="0.2093632221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="viewPopularItem:" destination="o1T-63-YPr" eventType="touchUpInside" id="ff5-Ua-BRx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWD-5W-Zah">
+                                <rect key="frame" x="214" y="419" width="93" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15636768940000001" green="0.16786375640000001" blue="0.2093632221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="viewPopularItem:" destination="o1T-63-YPr" eventType="touchUpInside" id="WoK-WC-JG9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.070575349032878876" green="0.070595644414424896" blue="0.070574067533016205" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="gUL-J8-7kk"/>
                     <connections>
+                        <outlet property="popularItem1" destination="0m6-Vc-skP" id="sOx-Sw-KCs"/>
+                        <outlet property="popularItem2" destination="MsY-LR-QF4" id="IFU-b5-RMi"/>
+                        <outlet property="popularItem3" destination="DGN-DD-mAK" id="fxo-hy-YBn"/>
+                        <outlet property="popularItem4" destination="eg0-n7-cGm" id="nI1-0H-f60"/>
+                        <outlet property="popularItem5" destination="yrh-bs-mcZ" id="KHZ-B1-gEz"/>
+                        <outlet property="popularItem6" destination="LWD-5W-Zah" id="XAg-Ox-wlX"/>
                         <outlet property="searchInput" destination="E5A-Er-2jS" id="spn-6Y-BQw"/>
                         <outlet property="searchMoviesButton" destination="dPL-dg-B9w" id="eYX-wD-SZA"/>
+                        <outlet property="segmentedControl" destination="j30-dz-WMj" id="6wN-pZ-CYR"/>
                         <segue destination="ZjR-km-9hv" kind="show" identifier="showTable" id="Ihy-Su-XBl"/>
+                        <segue destination="Gs3-bc-nU5" kind="show" identifier="presentPopularMovie" id="ur7-dz-aHJ"/>
+                        <segue destination="Wjp-mt-t27" kind="show" identifier="presentPopularSeries" id="fwP-7R-zG9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tt8-iO-cev" sceneMemberID="firstResponder"/>
@@ -375,4 +451,8 @@
         <image name="play_icon-1" width="128" height="128"/>
         <image name="search-1" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ur7-dz-aHJ"/>
+        <segue reference="fwP-7R-zG9"/>
+    </inferredMetricsTieBreakers>
 </document>
